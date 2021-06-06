@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Grocery App</title>
+	  <link href="./styles/style.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div class="title">
+      <h1>Vivianne's Grocery Store</h1>
+      <img src="./images/cartIcon.jpeg" alt="">
+    </div>
+
+    <div class="tab">
+      <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
+      <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+      <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+    </div>
+
+    <div id="Client" class="tabcontent">
+      <h3>Client Information</h3>
+      <p>Tell us a bit about you.</p>
+	     Choose a Category:
+  	  <select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+        <option></option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="GlutenFree">Gluten-Free</option>
+        <option value="LactoseFree">Lactose-Free</option>
+        <option value="NutFree">Nut-Free</option>
+        <option value="None">None</option>
+  	  </select>
+      <label for="organic">Organic:
+        <input type="checkbox" name="organic" value="organic" id="organic" onclick="populateListProductChoices('dietSelect', 'displayProduct')">
+      </label>
+    </div>
+
+    <div id="Products" class="tabcontent">
+      <h3>Your targeted products</h3>
+      <p>We preselected products based on your restrictions.</p>
+	    Choose items to buy:
+	    <div id="displayProduct"></div>
+	     <button id="addCart" type="button" class="block" onclick="selectedItems()">
+		       Add selected items to cart.
+	     </button>
+    </div>
+
+    <div id="Cart" class="tabcontent">
+      <h3>Cart</h3>
+      <p>Your Cart</p>
+      <div id="displayCart"></div>
+    </div>
+
+    <script type="text/javascript" src="./scripts/groceries.js"></script>
+    <script type="text/javascript" src="./scripts/main.js"></script>
+  </body>
+  <footer>Website designed by Vivianne Yee :)</footer>
+</html>
